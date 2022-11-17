@@ -9,7 +9,7 @@ const formE1= document.getElementById("form");
 
 const scoreE1= document.getElementById("score");
 
-let score= JSON.parse(localStorage.getItem("score"));
+let score= JSON.parse(sessionStorage.getItem("score"));
 
 if(!score){
     score=0;
@@ -25,14 +25,14 @@ formE1.addEventListener("submit", ()=>{
     const userAns= +inputE1.value;
     if(userAns== correctAns){
         score++;
-        updatelocalStorage()
+        updatesessionStorage()
     }else{
         score--;
-        updatelocalStorage()
+        updatesessionStorage()
     }
 });
 
-function updatelocalStorage(){
-    localStorage.setItem("score", JSON.stringify(score))
+function updatesessionStorage(){
+    sessionStorage.setItem("score", JSON.stringify(score))
 }
  
